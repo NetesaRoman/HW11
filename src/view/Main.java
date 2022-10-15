@@ -9,8 +9,8 @@ public class Main {
     public static void main(String[] args) {
         String[] arrayOfStr = {"apple", "orange", "peanut", "banana", "corn"};
         Integer[] arrayOfInt = {1, 2, 3, 4, 5};
-        ArrayList<String> list1 = new ArrayList<>();
-        ArrayList<Integer> list2 = new ArrayList<>();
+        List<String> list1 = new ArrayList<>();
+        List<Integer> list2 = new ArrayList<>();
 
         for (int i = 0; i < 40; i++) {
             list1.add(arrayOfStr[(int) (Math.random() * 5)]);
@@ -30,7 +30,7 @@ public class Main {
 
     }
 
-    public static int countOccurance(ArrayList<String> list, String target) {
+    public static int countOccurance(List<String> list, String target) {
         int result = 0;
 
         if (!isNull(list) && !isNull(target)) {
@@ -42,8 +42,8 @@ public class Main {
         return result;
     }
 
-    public static <T> ArrayList toList(T[] targetArray) {
-        ArrayList<T> outList = new ArrayList<T>();
+    public static <T> List toList(T[] targetArray) {
+        List<T> outList = new ArrayList<T>();
 
         if (isNull(targetArray)) {
             return null;
@@ -56,8 +56,8 @@ public class Main {
         return outList;
     }
 
-    public static <T> ArrayList<T> findUnique(ArrayList<T> target) {
-        ArrayList<T> result = new ArrayList<T>();
+    public static <T> List<T> findUnique(List<T> target) {
+        List<T> result = new ArrayList<T>();
 
         if (isNull(target)) {
             return null;
@@ -70,8 +70,8 @@ public class Main {
         return result;
     }
 
-    private static <T> HashMap<T, Integer> arrayListToHashMap(ArrayList<T> arrayList) {
-        HashMap<T, Integer> hashMap = new HashMap<>();
+    private static <T> Map<T, Integer> arrayListToHashMap(List<T> arrayList) {
+        Map<T, Integer> hashMap = new HashMap<>();
 
         if (isNull(arrayList)) {
             return null;
@@ -84,12 +84,12 @@ public class Main {
         return hashMap;
     }
 
-    public static <T> HashMap<T, Integer> calcOccurance(ArrayList<T> target) {
+    public static <T> Map<T, Integer> calcOccurance(List<T> target) {
         if (isNull(target)) {
             return null;
         }
 
-        HashMap<T, Integer> result = arrayListToHashMap(findUnique(target));
+        Map<T, Integer> result = arrayListToHashMap(findUnique(target));
 
         for (T obj : target) {
             if (result.containsKey(obj)) {
@@ -101,13 +101,13 @@ public class Main {
         return result;
     }
 
-    public static <T> ArrayList<MyStruct<T>> findOccurance(ArrayList<T> target){
+    public static <T> List<MyStruct<T>> findOccurance(List<T> target){
         if (isNull(target)) {
             return null;
         }
 
-        ArrayList<MyStruct<T>> result = new ArrayList<>();
-        ArrayList<T> temp = findUnique(target);
+        List<MyStruct<T>> result = new ArrayList<>();
+        List<T> temp = findUnique(target);
 
         for (T obj : temp) {
             result.add(new MyStruct<>(obj, 0));
